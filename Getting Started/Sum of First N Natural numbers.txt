@@ -2,35 +2,36 @@ import java.util.Scanner;
 
 /**
  * Question Description:
- * Print the first N natural numbers in reverse order.
+ * Calculate the sum of the first N natural numbers.
  * 
  * Input Format:
- * - A single integer N, which represents the number of natural numbers to print in reverse order.
+ * - A single integer N, which represents the number of natural numbers to sum.
  * 
  * Output Format:
- * - The natural numbers from N to 1, each printed on a new line.
+ * - The sum of the first N natural numbers.
  * 
  * Approach:
  * - Read the integer input N from the user.
- * - Use a for loop to iterate from N down to 1.
- * - Print each number during the iteration.
+ * - Initialize a variable `sum` to 0.
+ * - Use a for loop to iterate from N down to 1, adding each number to `sum`.
+ * - Print the final value of `sum`.
  * 
  * Time Complexity:
  * - The time complexity of this approach is O(N), where N is the input number.
  */
 
-public class MyClass {
-    public static void main(String args[]) {
-        Scanner scanner = new Scanner(System.in);
-        
+class Main {
+    public static void main(String[] args) {
         System.out.println("Enter a natural number:");
-        int n = scanner.nextInt();
-        System.out.println("Natural numbers in reverse order are:");
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        int sum = 0;
         
-        for (int i = n; i > 0; i--) {
-            System.out.println(i);
+        for (int n = num; n > 0; n--) {
+            sum += n;
         }
         
+        System.out.println("Sum of the first " + num + " natural numbers is: " + sum);
         scanner.close(); // Close the scanner
     }
 }
