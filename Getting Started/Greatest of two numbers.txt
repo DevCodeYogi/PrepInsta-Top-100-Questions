@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+/**
+ * Question Description:
+ * This program reads two integers from the user and determines which one is greater,
+ * or if both are equal.
+
+ * Input Format:
+ * Two integers entered by the user.
+
+ * Output Format:
+ * A message indicating whether the numbers are equal, or which number is greater.
+
+ * Approach:
+ * - Read two integers from the user using a Scanner.
+ * - Use conditional statements to compare the two numbers.
+ * - Print the appropriate message based on the comparison result.
+
+ * Time Complexity: O(1) — Only a single comparison is performed.
+ * Space Complexity: O(1) — Constant space usage.
+ */
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter two numbers: ");
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+
+        if (num1 == num2) {
+            System.out.println("Both numbers are equal.");
+        } else if (num1 > num2) {
+            System.out.println(num1 + " is greater than " + num2 + ".");
+        } else {
+            System.out.println(num2 + " is greater than " + num1 + ".");
+        }
+
+        scanner.close();
+    }
+}
