@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+/**
+ * Question Description:
+ * This program checks whether a given integer is even or odd.
+
+ * Input Format:
+ * An integer entered by the user.
+
+ * Output Format:
+ * Prints "Even" if the number is divisible by 2, otherwise prints "Odd".
+
+ * Approach:
+ * - Read an integer input from the user.
+ * - Use the modulo operator (%) to check if the number is divisible by 2.
+ * - If the remainder is 0, the number is even; otherwise, it is odd.
+ * - Print the corresponding result.
+
+ * Time Complexity: O(1) — Constant time as only a single arithmetic operation is performed.
+ * Space Complexity: O(1) — Constant space usage.
+ */
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number to be checked: ");
+        int num = scanner.nextInt();
+
+        if (num % 2 == 0) {
+            System.out.println("Even");
+        } else {
+            System.out.println("Odd");
+        }
+
+        scanner.close();
+    }
+}
