@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+/**
+ * Question Description:
+ * This program calculates the sum of all integers within a given inclusive range [num1, num2].
+
+ * Input Format:
+ * Two integers entered by the user, representing the start and end of the range.
+
+ * Output Format:
+ * A single line displaying the sum of all integers in the specified range.
+
+ * Approach:
+ * - Read two integers from the user.
+ * - Use a for-loop to iterate from the first number to the second number (inclusive).
+ * - Accumulate the sum of all numbers in the range.
+ * - Print the final result.
+
+ * Time Complexity: O(n) — where n is the number of integers between num1 and num2 (inclusive).
+ * Space Complexity: O(1) — constant space usage.
+ */
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter two numbers: ");
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+
+        int sum = 0;
+        for (int i = num1; i <= num2; i++) {
+            sum += i;
+        }
+
+        System.out.println("Sum of numbers in the provided range is: " + sum);
+
+        scanner.close();
+    }
+}
