@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+/**
+ * Question Description:
+ * This program checks whether a given integer is positive, negative, or zero.
+
+ * Input Format:
+ * An integer entered by the user.
+
+ * Output Format:
+ * A message indicating whether the number is "Positive number", "Negative number", or "Neither negative nor positive".
+
+ * Approach:
+ * - Read an integer input from the user.
+ * - Use conditional statements to determine the sign of the number.
+ * - Print the appropriate message based on the condition.
+
+ * Time Complexity: O(1) — Constant time as only a single input is evaluated.
+ * Space Complexity: O(1) — Constant space usage.
+ */
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number to be checked: ");
+        int num = scanner.nextInt();
+
+        if (num == 0) {
+            System.out.println("Neither negative nor positive");
+        } else if (num > 0) {
+            System.out.println("Positive number");
+        } else {
+            System.out.println("Negative number");
+        }
+
+        scanner.close();
+    }
+}
