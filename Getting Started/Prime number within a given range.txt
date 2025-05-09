@@ -1,0 +1,118 @@
+import java.util.Scanner;
+
+/**
+ * Question Description:
+ * This program prints all prime numbers from 2 up to a given number entered by the user.
+
+ * Input Format:
+ * A single integer 'n' entered by the user.
+
+ * Output Format:
+ * All prime numbers from 2 to 'n', each printed on a new line.
+
+ * Approach:
+ * - Read an integer from the user.
+ * - For each number from 2 to n, check if it is prime.
+ * - A number is prime if it has exactly two distinct positive divisors: 1 and itself.
+ * - Use a helper method `isPrime()` to check primality using an optimized approach (up to √n).
+ * - Print the number if it is prime.
+
+ * Time Complexity: O(n√n) — For each number up to n, we check divisibility up to its square root.
+ * Space Complexity: O(1) — Constant space usage.
+ */
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number: ");
+        int num = scanner.nextInt();
+
+        for (int i = 2; i <= num; i++) {
+            if (isPrime(i)) {
+                System.out.println(i);
+            }
+        }
+
+        scanner.close();
+    }
+
+    // Method to check if a number is prime
+    public static boolean isPrime(int num) {
+        if (num < 2) return false;
+
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+
+
+=================================================================================================
+
+
+
+
+import java.util.Scanner;
+
+/**
+ * Question Description:
+ * This program prints all prime numbers from 2 up to a given number entered by the user.
+
+ * Input Format:
+ * A single integer 'n' entered by the user.
+
+ * Output Format:
+ * All prime numbers from 2 to 'n', each printed on a new line.
+
+ * Approach:
+ * - Read an integer input from the user.
+ * - Iterate from 2 to the given number.
+ * - For each number, check if it is prime using the `isPrime()` method.
+ * - A number is prime if it is greater than 1 and has no divisors other than 1 and itself.
+ * - The `isPrime()` method checks divisibility up to the square root of the number for efficiency.
+ * - Print the number if it is prime.
+
+ * Time Complexity: O(n√n)
+ * - For each number from 2 to n, we check up to √n for primality.
+ * 
+ * Space Complexity: O(1)
+ * - Constant space is used regardless of input size.
+ */
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number: ");
+        int num = scanner.nextInt();
+
+        for (int i = 2; i <= num; i++) {
+            if (isPrime(i)) {
+                System.out.println(i);
+            }
+        }
+
+        scanner.close();
+    }
+
+    // Method to check if a number is prime
+    static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
