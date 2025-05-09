@@ -1,0 +1,75 @@
+import java.util.Scanner;
+
+/**
+ * Question Description:
+ * This program checks whether a given year is a leap year or not based on the Gregorian calendar rules.
+
+ * Input Format:
+ * A single integer representing the year to be checked.
+
+ * Output Format:
+ * A message indicating whether the year is a leap year or not.
+
+ * Approach:
+ * - Read the year from the user.
+ * - Apply the leap year rules:
+ *   1. If the year is divisible by 400, it is a leap year.
+ *   2. If the year is divisible by 100 (but not 400), it is not a leap year.
+ *   3. If the year is divisible by 4 (but not 100), it is a leap year.
+ *   4. Otherwise, it is not a leap year.
+ * - Print the result accordingly.
+
+ * Time Complexity: O(1) — Constant time as only a few arithmetic operations are performed.
+ * Space Complexity: O(1) — Constant space usage.
+ */
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a year to be checked: ");
+        int year = scanner.nextInt();
+
+        if (year % 400 == 0) {
+            System.out.println("It's a Leap Year.");
+        } else if (year % 100 == 0) {
+            System.out.println("It's not a Leap Year.");
+        } else if (year % 4 == 0) {
+            System.out.println("It's a Leap Year.");
+        } else {
+            System.out.println("It's not a Leap Year.");
+        }
+
+        scanner.close();
+    }
+}
+
+
+
+
+======================================================================================================
+
+
+
+
+// Leap year program in Java
+// If the year satisfies either of the conditions, it's considered a leap year -
+// 1. The year must be divisible by 400.
+// 2. The year must be divisible by 4 but not 100.
+public class Main{
+   public static void main (String[]args)
+   {
+
+     int year = 2020;
+
+     if (year % 400 == 0)
+       System.out.println (year + " is a Leap Year");
+
+     else if (year % 4 == 0 && year % 100 != 0)
+       System.out.println (year + " is a Leap Year");
+
+     else
+         System.out.println (year + " is not a Leap Year");
+
+   }
+ }
