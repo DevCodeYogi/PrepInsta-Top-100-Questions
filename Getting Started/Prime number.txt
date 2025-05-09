@@ -1,0 +1,104 @@
+import java.util.Scanner;
+
+/**
+ * Question Description:
+ * This program checks whether a given number is a prime number or not.
+
+ * Input Format:
+ * A single integer entered by the user.
+
+ * Output Format:
+ * A message indicating whether the number is "Prime" or "Not Prime".
+
+ * Approach:
+ * - Read an integer from the user.
+ * - A number is prime if it has exactly two distinct positive divisors: 1 and itself.
+ * - Count the number of divisors from 1 to num/2.
+ * - If the count of divisors is exactly 1 (only divisible by 1), then it's a prime number.
+ * - Print the result accordingly.
+
+ * Time Complexity: O(n) — where n is num/2, since we check divisibility up to num/2.
+ * Space Complexity: O(1) — constant space usage.
+ */
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number to be checked: ");
+        int num = scanner.nextInt();
+
+        int divisorCount = 0;
+        int n = num / 2;
+
+        while (n > 0) {
+            if (num % n == 0) {
+                divisorCount++;
+            }
+            n--;
+        }
+
+        if (divisorCount == 1) {
+            System.out.println("Prime");
+        } else {
+            System.out.println("Not Prime");
+        }
+
+        scanner.close();
+    }
+}
+
+
+
+======================================================================================================
+
+
+
+
+import java.util.Scanner;
+
+/**
+ * Question Description:
+ * This program checks whether a given number is a prime number using an optimized approach.
+
+ * Input Format:
+ * A single integer entered by the user.
+
+ * Output Format:
+ * A message indicating whether the number is "Prime" or "Not Prime".
+
+ * Approach:
+ * - A number is prime if it is greater than 1 and has no divisors other than 1 and itself.
+ * - For optimization, we check divisibility only up to the square root of the number.
+ * - If the number is divisible by any integer from 2 to √n, it is not prime.
+ * - Otherwise, it is prime.
+
+ * Time Complexity: O(√n) — We only iterate up to the square root of the number.
+ * Space Complexity: O(1) — Constant space usage.
+ */
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number to be checked: ");
+        int num = scanner.nextInt();
+        boolean isPrime = true;
+
+        if (num < 2) {
+            isPrime = false;
+        } else {
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+        if (isPrime) {
+            System.out.println("Prime");
+        } else {
+();
+    }
+}
