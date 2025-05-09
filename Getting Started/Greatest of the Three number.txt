@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+/**
+ * Question Description:
+ * This program reads three integers from the user and determines the greatest among them.
+ * If all three numbers are equal, it notifies the user accordingly.
+
+ * Input Format:
+ * Three integers entered by the user.
+
+ * Output Format:
+ * A message indicating the greatest number, or that all numbers are equal.
+
+ * Approach:
+ * - Read three integers from the user using a Scanner.
+ * - First, check if all three numbers are equal.
+ * - If not, use conditional statements to compare the numbers and determine the greatest.
+ * - Print the result accordingly.
+
+ * Time Complexity: O(1) — Constant time as only a fixed number of comparisons are made.
+ * Space Complexity: O(1) — Constant space usage.
+ */
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter three numbers: ");
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+        int num3 = scanner.nextInt();
+
+        if (num1 == num2 && num1 == num3) {
+            System.out.println("All numbers are equal.");
+        } else if (num1 >= num2 && num1 >= num3) {
+            System.out.println("Greatest number is: " + num1);
+        } else if (num2 >= num3) {
+            System.out.println("Greatest number is: " + num2);
+        } else {
+            System.out.println("Greatest number is: " + num3);
+        }
+
+        scanner.close();
+    }
+}
