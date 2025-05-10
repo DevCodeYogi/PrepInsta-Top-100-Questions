@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+/**
+ * Question Description:
+ * This program reads an integer from the user and prints its reverse.
+
+ * Input Format:
+ * A single integer entered by the user.
+
+ * Output Format:
+ * A message displaying the reversed number.
+
+ * Approach:
+ * - Read an integer from the user.
+ * - Initialize a variable `sum` to store the reversed number.
+ * - Use a while loop to extract each digit from the end using modulo (%).
+ * - Multiply `sum` by 10 and add the digit to build the reversed number.
+ * - Continue until the number becomes 0.
+ * - Print the reversed number.
+
+ * Time Complexity: O(d), where d is the number of digits in the input number.
+ * Space Complexity: O(1), as only a constant amount of space is used.
+ */
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number: ");
+        int num = scanner.nextInt();
+        int reversed = 0, remainder;
+        int temp = num; // Optional: to preserve original number if needed
+
+        while (num > 0) {
+            remainder = num % 10;             // Extract last digit
+            reversed = (reversed * 10) + remainder; // Append digit to reversed number
+            num /= 10;                         // Remove last digit
+        }
+
+        System.out.println("Reversed number is: " + reversed);
+
+        scanner.close();
+    }
+}
