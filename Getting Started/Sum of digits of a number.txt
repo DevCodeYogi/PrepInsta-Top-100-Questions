@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+/**
+ * Question Description:
+ * This program calculates the sum of the digits of a given positive integer.
+
+ * Input Format:
+ * A single positive integer entered by the user.
+
+ * Output Format:
+ * A message displaying the sum of the digits of the entered number.
+
+ * Approach:
+ * - Read an integer input from the user.
+ * - Initialize a variable `sum` to 0.
+ * - Use a while loop to extract each digit using modulo (%) and add it to `sum`.
+ * - Divide the number by 10 in each iteration to remove the last digit.
+ * - Continue until the number becomes 0.
+ * - Print the final sum.
+
+ * Time Complexity: O(d), where d is the number of digits in the input number.
+ * Space Complexity: O(1), as only a constant amount of space is used.
+ */
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number: ");
+        int num = scanner.nextInt();
+        int sum = 0;
+
+        while (num > 0) {
+            sum += num % 10;  // Add the last digit to sum
+            num /= 10;        // Remove the last digit
+        }
+
+        System.out.println("Sum of the digits is: " + sum);
+
+        scanner.close();
+    }
+}
