@@ -1,0 +1,75 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a Scanner object to read input from the user
+        Scanner scanner = new Scanner(System.in);
+        
+        // Prompt the user to enter a number
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+        
+        // Function to get order (length)
+        int len = order(num);
+        
+        // Check if Armstrong
+        if (armstrong(num, len))
+            System.out.println(num + " is an Armstrong number");
+        else
+            System.out.println(num + " is not an Armstrong number");
+        
+        // Close the scanner
+        scanner.close();
+    }
+
+    // Question Description:
+    // An Armstrong number (also known as a narcissistic number) is a number that is equal to the sum of its own digits each raised to the power of the number of digits.
+    // For example, 407 is an Armstrong number because 4^3 + 0^3 + 7^3 = 407.
+
+    // Input Format:
+    // A single integer n provided by the user.
+
+    // Output Format:
+    // A boolean value: true if n is an Armstrong number, false otherwise.
+
+    // Function to calculate the number of digits (order) in the number
+    static int order(int x) {
+        int len = 0;
+        while (x != 0) {
+            len++;
+            x = x / 10;
+        }
+        return len;
+    }
+
+    // Function to check if the number is an Armstrong number
+    static boolean armstrong(int num, int len) {
+        int sum = 0, temp, digit;
+        temp = num;
+
+        // Loop to extract digit, find power & add to sum
+        while (temp != 0) {
+            // Extract digit
+            digit = temp % 10;
+
+            // Add power to sum
+            sum = sum + (int) Math.pow(digit, len);
+            temp /= 10;
+        }
+
+        return num == sum;
+    }
+
+    // My Approach:
+    // 1. Convert the number to a string to easily access each digit.
+    // 2. Calculate the number of digits in the number.
+    // 3. Initialize a sum variable to store the sum of each digit raised to the power of the number of digits.
+    // 4. Iterate over each digit, convert it to an integer, raise it to the power of the number of digits, and add it to the sum.
+    // 5. Compare the sum to the original number to determine if it is an Armstrong number.
+
+    // Time Complexity:
+    // The time complexity of this approach is O(d), where d is the number of digits in the number. This is because we iterate over each digit once.
+
+    // Space Complexity:
+    // The space complexity is O(1) because we use a constant amount of extra space regardless of the input size.
+}
