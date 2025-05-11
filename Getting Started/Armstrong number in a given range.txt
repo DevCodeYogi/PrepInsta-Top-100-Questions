@@ -1,0 +1,78 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a Scanner object to read input from the user
+        Scanner scanner = new Scanner(System.in);
+        
+        // Prompt the user to enter the range
+        System.out.print("Enter the lower bound of the range: ");
+        int lowerBound = scanner.nextInt();
+        System.out.print("Enter the upper bound of the range: ");
+        int upperBound = scanner.nextInt();
+        
+        // Find and print Armstrong numbers within the given range
+        System.out.println("Armstrong numbers in the range [" + lowerBound + ", " + upperBound + "]:");
+        for (int num = lowerBound; num <= upperBound; num++) {
+            int len = order(num);
+            if (armstrong(num, len)) {
+                System.out.println(num);
+            }
+        }
+        
+        // Close the scanner
+        scanner.close();
+    }
+
+    // Question Description:
+    // An Armstrong number (also known as a narcissistic number) is a number that is equal to the sum of its own digits each raised to the power of the number of digits.
+    // For example, 407 is an Armstrong number because 4^3 + 0^3 + 7^3 = 407.
+    // This program finds all Armstrong numbers within a given range.
+
+    // Input Format:
+    // Two integers representing the lower and upper bounds of the range provided by the user.
+
+    // Output Format:
+    // A list of Armstrong numbers within the given range.
+
+    // Function to calculate the number of digits (order) in the number
+    static int order(int x) {
+        int len = 0;
+        while (x != 0) {
+            len++;
+            x = x / 10;
+        }
+        return len;
+    }
+
+    // Function to check if the number is an Armstrong number
+    static boolean armstrong(int num, int len) {
+        int sum = 0, temp, digit;
+        temp = num;
+
+        // Loop to extract digit, find power & add to sum
+        while (temp != 0) {
+            // Extract digit
+            digit = temp % 10;
+
+            // Add power to sum
+            sum = sum + (int) Math.pow(digit, len);
+            temp /= 10;
+        }
+
+        return num == sum;
+    }
+
+    // My Approach:
+    // 1. Prompt the user to enter the lower and upper bounds of the range.
+    // 2. Iterate through each number in the range.
+    // 3. For each number, calculate the number of digits.
+    // 4. Check if the number is an Armstrong number by summing the powers of its digits.
+    // 5. Print the Armstrong numbers found within the range.
+
+    // Time Complexity:
+    // The time complexity of this approach is O(n * d), where n is the number of integers in the range and d is the number of digits in each integer. This is because we iterate over each number in the range and then over each digit in the number.
+
+    // Space Complexity:
+    // The space complexity is O(1) because we use a constant amount of extra space regardless of the input size.
+}
