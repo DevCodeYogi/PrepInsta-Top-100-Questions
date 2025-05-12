@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+/**
+ * Problem Description:
+ * ---------------------
+ * Write a program to print the Fibonacci series up to 'n' terms, where 'n' is a positive integer input by the user.
+ * The Fibonacci series is a sequence where each number is the sum of the two preceding ones, starting from 0 and 1.
+ *
+ * Input Format:
+ * -------------
+ * A single positive integer 'n' representing the number of terms in the Fibonacci series.
+ *
+ * Output Format:
+ * --------------
+ * The first 'n' terms of the Fibonacci series, each printed on a new line.
+ *
+ * Sample Input:
+ * 5
+ *
+ * Sample Output:
+ * 0
+ * 1
+ * 1
+ * 2
+ * 3
+ *
+ * Approach:
+ * ---------
+ * - If n == 1, print only the first term (0).
+ * - If n == 2, print the first two terms (0 and 1).
+ * - For n > 2, print the first two terms, then use a loop to calculate and print the remaining terms.
+ *
+ * Time Complexity:
+ * ----------------
+ * O(n) — We iterate through the loop 'n-2' times to generate the remaining terms.
+ *
+ * Space Complexity:
+ * -----------------
+ * O(1) — Constant space is used regardless of the input size.
+ */
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Enter the positive number to print Fibonacci Series:");
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        scanner.close(); // Good practice to close the scanner
+        fibo(num);
+    }
+
+    public static void fibo(int num) {
+        int a = 0, b = 1, c;
+
+        if (num <= 0) {
+            System.out.println("Please enter a positive integer.");
+        } else if (num == 1) {
+            System.out.println(a);
+        } else if (num == 2) {
+            System.out.println(a + "\n" + b);
+        } else {
+            System.out.println(a + "\n" + b);
+            for (int i = 2; i < num; i++) {
+                c = a + b;
+                System.out.println(c);
+                a = b;
+                b = c;
+            }
+        }
+    }
+}
