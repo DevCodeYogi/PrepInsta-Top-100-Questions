@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+/**
+ * Problem Description:
+ * ---------------------
+ * Write a program to calculate and print the factorial of a given positive integer.
+ * The factorial of a number 'n' is the product of all positive integers less than or equal to 'n'.
+ * For example, factorial of 5 (written as 5!) is 5 × 4 × 3 × 2 × 1 = 120.
+ *
+ * Input Format:
+ * -------------
+ * A single positive integer 'n' entered by the user.
+ *
+ * Output Format:
+ * --------------
+ * A single line displaying the factorial of the input number.
+ *
+ * Sample Input:
+ * 5
+ *
+ * Sample Output:
+ * Factorial value is : 120
+ *
+ * Approach:
+ * ---------
+ * - Initialize a variable `fact` to 1.
+ * - Use a loop from 2 to `n`, multiplying `fact` by each number in the loop.
+ * - Print the final value of `fact`.
+ *
+ * Time Complexity:
+ * ----------------
+ * O(n) — The loop runs 'n-1' times to compute the factorial.
+ *
+ * Space Complexity:
+ * -----------------
+ * O(1) — Constant space is used regardless of the input size.
+ */
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Enter the positive number to print its factorial:");
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        scanner.close(); // Good practice to close the scanner
+        factorial(num);
+    }
+
+    public static void factorial(int num) {
+        if (num < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+            return;
+        }
+
+        int fact = 1;
+        for (int i = 2; i <= num; i++) {
+            fact *= i;
+        }
+
+        System.out.println("Factorial value is : " + fact);
+    }
+}
